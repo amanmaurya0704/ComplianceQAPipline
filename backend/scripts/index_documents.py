@@ -64,7 +64,8 @@ def index_docs():
 
     try:
         logger.info("Initalise the Azure AI SEARCH vector store.......")
-        embedding = AzureSearch(
+        index_name = os.getenv("AZURE_SEARCH_INDEX_NAME")
+        vector_store = AzureSearch(
             azure_search_endpoint = os.getenv("AZURE_SEARCH_ENDPOINT"),
             azure_search_key=os.getenv("AZURE_SEARCH_API_KEY"),
             index_name=os.getenv("AZURE_SEARCH_INDEX_NAME"),
